@@ -1,0 +1,6 @@
+{
+    "development": {
+        "PORT": 7000,
+        "POSTGRESQL_URI": "postgres://postgres:postgres@localhost:5400/newproject"
+    }
+}

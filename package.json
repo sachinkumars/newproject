@@ -1,0 +1,53 @@
+{
+  "name": "newproject",
+  "version": "1.0.0",
+  "description": "new project",
+  "main": "app.js",
+  "author": "Sachin",
+  "private": true,
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "scripts": {
+    "serve": "nodemon --exec \" eslint ./modules/**.*.js ./middleware/**.*.js && npm run start\"",
+    "build": "npm test && npm run apidoc",
+    "start": "nodemon app.js",
+    "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha ./modules/**/*.test.js",
+    "apidoc": "npm run apidoc-user && npm run apidoc-restaurant && npm run apidoc-admin",
+    "apidoc-user": "apidoc -i ./modules/user-api -o public/doc/user",
+    "apidoc-restaurant": "apidoc -i ./modules/restaurant-api -o public/doc/restaurant",
+    "apidoc-admin": "apidoc -i ./modules/admin-api -o public/doc/admin",
+    "gen:model": "sh ./generators/model.generator.sh",
+    "gen:module": "sh ./generators/module.generator.sh"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-validator": "^4.3.0",
+    "express-winston": "^2.4.0",
+    "helmet": "^3.11.0",
+    "jsonwebtoken": "^8.1.1",
+    "lodash": "^4.17.5",
+    "multer": "^1.3.0",
+    "mustache": "^2.3.0",
+    "nodemailer": "^4.4.2",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.33.2",
+    "uuid": "^3.2.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "expect": "^22.2.2",
+    "mocha": "^5.0.0",
+    "nodemon": "^1.14.12",
+    "sequelize-auto": "^0.4.29"
+  }
+}
